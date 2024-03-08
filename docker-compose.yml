@@ -1,0 +1,40 @@
+version: '3.6'
+
+networks:
+  arkanet:
+    driver: bridge
+    name: arkanet
+
+
+services:
+
+  api-sanad:
+    container_name: api-sanad
+    image: sanadapi:v1
+    networks:
+      - arkanet
+    #ports:
+      #- 127.0.0.1:9090:80
+    restart:
+      on-failure
+
+  api-inventory:
+    container_name: api-inventory
+    image: inventoryapi:v1
+    networks:
+      - arkanet
+    #ports:
+      #- 127.0.0.1:9092:80
+    restart:
+      on-failure      
+
+
+  api-gateway:
+    container_name: api-gateway
+    image: gatewayapi:v1
+    networks:
+      - arkanet
+    ports:
+      - 192.168.1.4:80:80
+    restart:
+      on-failure   
