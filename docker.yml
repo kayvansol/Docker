@@ -37,7 +37,7 @@
 
     - name: Add Docker GPG key (6.2)
       get_url:
-        url: https://download.docker.com/linux/ubuntu/gpg
+        url: https://raw.githubusercontent.com/kayvansol/Mahla/refs/heads/master/gpg #https://download.docker.com/linux/ubuntu/gpg
         dest: /etc/apt/keyrings/docker.asc
 
 
